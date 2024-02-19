@@ -13,3 +13,9 @@ def mark_as_done(request, pk):
     task_t.is_completed= True
     task_t.save()
     return redirect('home')
+
+def mark_as_undone(request,pk):
+    tassk_n= get_object_or_404(task, pk=pk)
+    tassk_n.is_completed=False
+    tassk_n.save()
+    return redirect('home')
